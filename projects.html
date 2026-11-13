@@ -19,18 +19,69 @@
       <li><button class="bar" style="--w: 80%" data-filter="research" aria-pressed="false">Research</button></li>
     </ul>
 
-    <!-- Each tile: set data-category to physical, digital or research.
-         To add a picture, put <img src="assets/yourfile.jpg" alt="..."> inside the link.
-         Add more tiles by copying one; the layout pattern repeats every four. -->
+    <!-- Each tile is one project. To add one, copy a tile and edit it:
+         data-category  physical, digital and/or research (space-separated)
+         --pos          which part of the picture shows in the tile (x% y%)
+         The tile title, tags and description appear in the pop-up when a tile is clicked.
+         The layout pattern repeats every four tiles. -->
     <div class="grid">
-      <a class="tile" href="#" data-category="physical"><span class="tile__title">Project one</span></a>
-      <a class="tile" href="#" data-category="digital"><span class="tile__title">Project two</span></a>
-      <a class="tile" href="#" data-category="research"><span class="tile__title">Project three</span></a>
-      <a class="tile" href="#" data-category="physical"><span class="tile__title">Project four</span></a>
+      <button type="button" class="tile" data-category="physical research" style="--pos: 50% 50%">
+        <img src="assets/projects/drill.jpg" alt="Exploded CAD view of a hand drill and its parts" width="1280" height="686" loading="lazy" decoding="async">
+        <span class="tile__title">Drill Teardown Project (ME40)</span>
+        <span class="tile__tags" hidden>Physical, Research</span>
+        <span class="tile__desc" hidden>In a team of three, I was given an 8V battery-powered hand drill to tear down, analyze, and completely remake in SOLIDWORKS. As a team, we conducted background research, task analysis, user-centered design analysis, function structure diagramming, and complete decomposition with notation. From there, we thoroughly designed each part in CAD and assembled them to have a functional, “digital” drill!</span>
+      </button>
+      <button type="button" class="tile" data-category="digital" style="--pos: 55% 40%">
+        <img src="assets/projects/nature-rx.jpg" alt="Shoppers at a farm stand beside a sign reading “Fresh. Canned. Dried. Frozen. It’s HIP to be healthy!”" width="888" height="592" loading="lazy" decoding="async">
+        <span class="tile__title">HERO NatureRx Workflow Design Project</span>
+        <span class="tile__tags" hidden>Digital design</span>
+        <span class="tile__desc" hidden>Over the course of my Spring 2026 semester, I worked in a group of four students with a client to design a solution for the needs of their nonprofit organization. Our project was awarded a seed grant to continue development from the Tisch College Community Research Center at Tufts.</span>
+      </button>
+      <button type="button" class="tile" data-category="physical" style="--pos: 50% 55%">
+        <img src="assets/projects/lego-sorter.jpg" alt="A fabricated circular LEGO-sorting device with teal bins on a photo table" width="1280" height="853" loading="lazy" decoding="async">
+        <span class="tile__title">LEGO Sorter Fabrication Project</span>
+        <span class="tile__tags" hidden>Physical</span>
+        <span class="tile__desc" hidden>In a team of three, I worked with a special-needs client to ideate, design, and fabricate a LEGO-sorting device for my Engineering Design class. We took time to outline user needs, engineering requirements, and build something original from the ground up.</span>
+      </button>
+      <button type="button" class="tile" data-category="digital" style="--pos: 50% 25%">
+        <img src="assets/projects/sink-website.jpg" alt="The drinks menu page of the Sink coffee shop website, with a pixelated horse graphic" width="1600" height="931" loading="lazy" decoding="async">
+        <span class="tile__title">Sink Website</span>
+        <span class="tile__tags" hidden>Digital design</span>
+        <span class="tile__desc" hidden>I coordinated the visual design for a new website for the student-run coffee shop I manage. This new site connects users to our menu, important resources, and serves as the bridge between us and student organizations for potential collaborations.</span>
+      </button>
+      <button type="button" class="tile" data-category="digital" style="--pos: 20% 12%">
+        <img src="assets/projects/airline-briefing.jpg" alt="Prototype welcome screen reading “Welcome Aboard, Laura” with seat and flight details" width="1600" height="900" loading="lazy" decoding="async">
+        <span class="tile__title">Airline Safety Briefing Redesign</span>
+        <span class="tile__tags" hidden>Digital design</span>
+        <span class="tile__desc" hidden>For my Computer Interface Design class final project, I spent three weeks designing, testing, and building an interactive prototype of an interactive safety briefing concept for an airline to use. All work was done through Figma using its design tools and wireframing capabilities.</span>
+      </button>
+      <button type="button" class="tile" data-category="research" style="--pos: 50% 25%">
+        <img src="assets/projects/irli-poster.jpg" alt="Research poster titled “Understanding Students’ Learning Pathways in Machine Shops”" width="1280" height="960" loading="lazy" decoding="async">
+        <span class="tile__title">IRLI Engineering Education Research Paper</span>
+        <span class="tile__tags" hidden>Research</span>
+        <span class="tile__desc" hidden>I worked under the mentorship and guidance of a graduate student in education at Tufts University to conduct a study on the resources that university machine shops afford to students to learn and create. I took specific focus in engineering undergraduate education and communities of practice. Our paper was recently submitted and approved to the 2026 ASEE annual conference.</span>
+      </button>
+      <button type="button" class="tile" data-category="research" style="--pos: 50% 50%">
+        <img src="assets/projects/em52-report.jpg" alt="Title slide reading “Making and Creativity: Paths to a Better You”" width="960" height="540" loading="lazy" decoding="async">
+        <span class="tile__title">EM52 Creativity and Making Technical Report</span>
+        <span class="tile__tags" hidden>Research</span>
+        <span class="tile__desc" hidden>I wrote an in-depth report for an engineering management and technical communication class as my final project. In it, I discuss the importance of making and creativity, review critical theory, and practice industry standards for professional formatting and communication.</span>
+      </button>
     </div>
   </main>
 
+    <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+      <button type="button" class="modal__close" data-close>Close</button>
+      <a class="modal__img" id="modal-img-link" target="_blank" rel="noopener" title="Open full-size image"><img id="modal-img" alt=""></a>
+      <div class="modal__body">
+        <h2 id="modal-title"></h2>
+        <p class="modal__tags" id="modal-tags"></p>
+        <p id="modal-desc"></p>
+      </div>
+    </dialog>
+
   <nav class="nav" aria-label="Main">
+    <a href="index.html">Home</a>
     <a href="about.html">About me</a>
     <a href="projects.html" aria-current="page">Projects</a>
     <a href="contact.html">Contact</a>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Projects – Mark Schaffler</title>
+</head>
+<body>
+  <main class="page">
+    <ul class="bars">
+      <li><h1 class="bar">Projects</h1></li>
+      <!-- --w sets how long each grey bar is. Change freely. -->
+      <li><button class="bar" style="--w: 54%" data-filter="physical" aria-pressed="false">Physical</button></li>
+      <li><button class="bar" style="--w: 63%" data-filter="digital" aria-pressed="false">Digital</button></li>
+      <li><button class="bar" style="--w: 80%" data-filter="research" aria-pressed="false">Research</button></li>
+    </ul>
+
+    <!-- Each tile: set data-category to physical, digital or research.
+         To add a picture, put <img src="assets/yourfile.jpg" alt="..."> inside the link.
+         Add more tiles by copying one; the layout pattern repeats every four. -->
+    <div class="grid">
+      <a class="tile" href="#" data-category="physical"><span class="tile__title">Project one</span></a>
+      <a class="tile" href="#" data-category="digital"><span class="tile__title">Project two</span></a>
+      <a class="tile" href="#" data-category="research"><span class="tile__title">Project three</span></a>
+      <a class="tile" href="#" data-category="physical"><span class="tile__title">Project four</span></a>
+    </div>
+  </main>
+
+  <nav class="nav" aria-label="Main">
+    <a href="about.html">About me</a>
+    <a href="projects.html" aria-current="page">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <script src="script.js"></script>
+</body>
+</html>
